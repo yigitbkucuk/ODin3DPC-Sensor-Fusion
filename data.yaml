@@ -1,0 +1,9 @@
+path: C:/Users/ybugr/PycharmProjects/ODin3DPC/data  # Projenin tam yolu
+train: images/train
+val: images/val
+
+names:
+  0: binek_arac
+  1: yaya
+  2: kamyon
+  3: otobus

@@ -1,0 +1,8 @@
+.venv/
+.idea/
+__pycache__/
+*.cache
+analysis_report.csv
+dataset_for_training.csv
+yolo11n.pt
+data/

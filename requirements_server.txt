@@ -1,0 +1,28 @@
+# ==========================================
+# ODin3DPC - H200 Server "Headless" Kurulum Paketi
+# ==========================================
+
+# 1. Temel Veri İşleme
+numpy
+scipy
+numba==0.58.1  # Nokta bulutu (Voxelization) hesaplamalarını CPU'da ışık hızına çıkarır.
+
+# 2. Derin Öğrenme Motoru (PyTorch)
+# Not: H200 için en güncel CUDA destekli versiyonlar kurulacak
+torch
+torchvision
+torchaudio
+
+# 3. 3B Nesne Tespiti İçin Özel Kütüphaneler
+# Spconv: PointPillars ve VoxelNet gibi modellerin belkemiğidir (Sparse Convolution).
+# (Sunucunun CUDA sürümüne göre cu118 veya cu121 olarak güncellenebilir)
+spconv-cu121
+
+# 4. Görüntü ve 3B İşleme (EKRANSIZ SÜRÜMLER)
+opencv-python-headless  # ÇOK KRİTİK: Arayüz (GUI) kodları arındırılmış saf OpenCV.
+open3d
+
+# 5. Sunucu Takibi ve Loglama
+tensorboard  # Modeli kurumda H200 eğitirken, sen evden grafikleri canlı izleyeceksin.
+tqdm         # Terminalde havalı ilerleme çubukları için.
+pyyaml       # Model ayar dosyalarını okumak için.
