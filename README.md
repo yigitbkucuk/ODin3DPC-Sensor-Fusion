@@ -10,7 +10,7 @@ Sistem mimarisinde, 2B kamera görüntüleri projeye özel olarak eğitilmiş (f
 * **Coğrafi Isı Haritası & Segmentasyon:** Gelişmiş 3D görselleştirme modları.
 * **Akıllı Etkileşim:** PyQt6 ve Open3D tabanlı, çok iş parçacıklı (multi-threaded) kullanıcı arayüzü.
 
-## Örnek Veri Seti (Demo)
+## Örnek Veri Seti (Demo) 
 Devasa veri setlerini indirmekle uğraşmadan projeyi anında test edebilmeniz için ana dizine **`ornek_data`** adında özel bir klasör bırakılmıştır. Bu klasör içerisinde:
 * `images_` (2B Kamera Görüntüleri)
 * `velodyne_` (3B LiDAR Nokta Bulutları)
