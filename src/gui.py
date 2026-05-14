@@ -6,6 +6,8 @@ from PyQt6.QtCore import *
 from PyQt6.QtGui import *
 import pyqtgraph.opengl as gl
 from src.processor import process_frame, detect_objects_2d
+from src.processor import process_frame, detect_objects_2d, model_2d
+
 
 class DataLoaderThread(QThread):
     finished_signal = pyqtSignal(object, object, object, str)
@@ -35,7 +37,10 @@ class DataLoaderThread(QThread):
                     'color': getattr(b, 'color', [1.0, 1.0, 1.0])
                 })
 
-            img_path = self.path.replace("velodyne", "image_2").replace(".bin", ".png")
+            if "velodyne_" in self.path:
+                img_path = self.path.replace("velodyne_", "images_").replace(".bin", ".png")
+            else:
+                img_path = self.path.replace("velodyne", "image_2").replace(".bin", ".png")
 
             self.finished_signal.emit(points_np, safe_bboxes, meta, img_path)
         except Exception as e:
@@ -284,10 +289,13 @@ class ODin3DPC_GUI(QMainWindow):
                 self.lidar_view.addItem(box)
                 self.box_items.append(box)
 
-            if img_res is not None:
-                rgb = cv2.cvtColor(img_res, cv2.COLOR_BGR2RGB)
-                qimg = QImage(rgb.data, rgb.shape[1], rgb.shape[0], rgb.shape[1]*3, QImage.Format.Format_RGB888)
-                self.cam_lbl.setPixmap(QPixmap.fromImage(qimg).scaled(self.cam_lbl.size(), Qt.AspectRatioMode.KeepAspectRatio))
+           if img_res is not None:
+                # YOLO'nun cizdigi kutularin PyQt6 belleğinden silinmemesi icin .copy() eklendi
+                rgb = cv2.cvtColor(img_res, cv2.COLOR_BGR2RGB).copy()
+                h, w, ch = rgb.shape
+                bytes_per_line = ch * w
+                qimg = QImage(rgb.data, w, h, bytes_per_line, QImage.Format.Format_RGB888)
+                self.cam_lbl.setPixmap(QPixmap.fromImage(qimg).scaled(self.cam_lbl.size(), Qt.AspectRatioMode.KeepAspectRatio, Qt.TransformationMode.SmoothTransformation))
             else:
                 self.cam_lbl.setText("ESLESTIRILECEK FOTOGRAF BULUNAMADI")
 
