@@ -43,7 +43,7 @@ Projenin donanım kısıtlamaları, algoritma mimarisi, yaşanan zorluklar (C++ 
 
 Arayüzün, 2D YOLO nesne tespitinin ve 3D LiDAR nokta bulutu segmentasyonunun eşzamanlı nasıl çalıştığını görmek için aşağıdaki videoya tıklayabilirsiniz:
 
-[![ODin3DPC Demo](https://img.youtube.com/vi/https://www.youtube.com/watch?v=xMrrAmF25gI/maxresdefault.jpg)](https://www.youtube.com/watch?v=https://www.youtube.com/watch?v=xMrrAmF25gI)
+[![ODin3DPC Demo](https://img.youtube.com/vi/xMrrAmF25gI/hqdefault.jpg)](https://www.youtube.com/watch?v=xMrrAmF25gI)
 
 ## Hazırlayan
 * Yiğit Buğra Küçük
