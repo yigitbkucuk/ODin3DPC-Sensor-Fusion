@@ -14,8 +14,7 @@ warnings.filterwarnings("ignore", category=UserWarning)
 # Bu dosyanın (processor.py) bulunduğu klasörü (src) al
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
-# YOLO modelini yükle (best.pt artık src klasörünün içinde olduğu için direkt current_dir kullanıyoruz)
-yolo_model_path = os.path.join(current_dir, "best.pt")
+yolo_model_path = os.path.join(current_dir, "yolo11n.pt")
 model_2d = YOLO(yolo_model_path)
 
 # Yapay Zeka Modelini (odin_brain.pkl) proje ana dizininden yükle (src'nin bir üst klasörü)
@@ -170,5 +169,7 @@ def process_frame(bin_path):
 
 def detect_objects_2d(frame):
     """Kamera görüntüsü üzerinde YOLOv11 ile nesne tespiti yapar."""
-    results = model_2d(frame, verbose=False)
-    return results[0].plot()
+    # conf=0.05 ile modelin en düşük tahminlerini bile ekranda zorla gösteriyoruz
+    results = model_2d(frame, conf=0.05, verbose=False)
+    # line_width ile cizgileri daha kalin ve belirgin yapiyoruz
+    return results[0].plot(line_width=2)
