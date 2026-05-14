@@ -39,6 +39,12 @@ python main.py
 ## Teknik Rapor
 Projenin donanım kısıtlamaları, algoritma mimarisi, yaşanan zorluklar (C++ kütüphane çakışmaları) ve performans metriklerini detaylandıran IEEE formatındaki teknik analize ana dizinde bulunan YigitBugraKucuk_ODin3DPC_Analiz_Raporu.pdf dosyasından ulaşabilirsiniz.
 
+## 🎥 Proje Tanıtım Videosu
+
+Arayüzün, 2D YOLO nesne tespitinin ve 3D LiDAR nokta bulutu segmentasyonunun eşzamanlı nasıl çalıştığını görmek için aşağıdaki videoya tıklayabilirsiniz:
+
+[![ODin3DPC Demo](https://img.youtube.com/vi/https://www.youtube.com/watch?v=xMrrAmF25gI/maxresdefault.jpg)](https://www.youtube.com/watch?v=https://www.youtube.com/watch?v=xMrrAmF25gI)
+
 ## Hazırlayan
 * Yiğit Buğra Küçük
 * 230212048
